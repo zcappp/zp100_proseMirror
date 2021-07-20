@@ -1,0 +1,603 @@
+module.exports=`
+/**/
+
+.zp101 {
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0px !important;
+    border: none !important;
+}
+
+.zp100 {
+    max-width: 800px;
+    background: white;
+}
+
+.ProseMirror {
+    position: relative;
+    outline: none;
+    line-height: 1.5;
+    padding: 4px 8px 50px 14px;
+    min-height: 200px;
+    white-space: pre-wrap;
+    border: 1px solid #e6e6e6;
+    border-top: 0;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.ProseMirror p {
+    position: relative;
+    margin: 0.5em 0px;
+    max-width: 800px;
+    line-height: 1.9;
+}
+
+.ProseMirror a {
+    text-decoration: underline;
+    color: #2970f6;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6 {
+    margin-bottom: 0;
+}
+
+.ProseMirror-selectednode {
+    outline: 2px solid #8cf;
+}
+
+::selection {
+    background: rgba(0, 0, 0, .3);
+}
+
+.ProseMirror-gapcursor {
+    display: none;
+    pointer-events: none;
+    position: absolute;
+}
+
+.ProseMirror-gapcursor:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -2px;
+    width: 20px;
+    border-top: 1px solid black;
+    animation: ProseMirror-cursor-blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes ProseMirror-cursor-blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+.ProseMirror blockquote {
+    padding-left: 1em;
+    border-left: 3px solid #eee;
+    margin-left: 0;
+    margin-right: 0;
+    color: #606266;
+}
+
+.ProseMirror table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    overflow: hidden;
+}
+
+.ProseMirror .tableWrapper {
+    overflow-x: auto;
+    margin: 1em 0;
+}
+
+.ProseMirror td,
+.ProseMirror th {
+    vertical-align: top;
+    box-sizing: border-box;
+    position: relative;
+    min-width: 1em;
+    border: 1px solid #ddd;
+    padding: 0 5px;
+}
+
+/*.ProseMirror :not(pre) code*/
+.ProseMirror p>code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+    margin: 0 .3em;
+    padding: .15rem .3rem;
+    background-color: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 2px;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6 {
+    position: relative;
+}
+
+.ProseMirror h1:after,
+.ProseMirror h2:after,
+.ProseMirror h3:after,
+.ProseMirror h4:after,
+.ProseMirror h5:after,
+.ProseMirror h6:after {
+    position: absolute;
+    right: 0px;
+    top: -7px;
+    color: grey;
+    font-size: 9px;
+}
+
+.ProseMirror h1:after {
+    content: "H1";
+}
+
+.ProseMirror h2:after {
+    content: "H2";
+}
+
+.ProseMirror h3:after {
+    content: "H3";
+}
+
+.ProseMirror h4:after {
+    content: "H4";
+}
+
+.ProseMirror h5:after {
+    content: "H5";
+}
+
+.ProseMirror h6:after {
+    content: "H6";
+}
+
+.ProseMirror .uploading {
+    overflow: hidden;
+    position: relative;
+    width: 152px;
+    height: 152px;
+    margin: 1px;
+    opacity: 0.5;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.ProseMirror .uploading img,
+.ProseMirror .uploading video {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    margin: auto;
+}
+
+.ProseMirror .uploading::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 3px solid #cdd1e0;
+    border-top-color: #388AE5;
+    animation: loading 2s infinite linear;
+}
+
+.ProseMirror .uploading>div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 9;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.ProseMirror pre[class*=language-] {
+    position: relative;
+    background: #f5f2f0;
+    padding: 1em;
+    margin: .5em 0;
+}
+
+.ProseMirror pre[class*=language-]:after {
+    position: absolute;
+    right: 3px;
+    top: 0px;
+    color: grey;
+}
+
+.ProseMirror pre.language-html:after {
+    content: "html";
+}
+
+.ProseMirror pre.language-css:after {
+    content: "css";
+}
+
+.ProseMirror pre.language-javascript:after {
+    content: "js";
+}
+
+.ProseMirror pre.language-json:after {
+    content: "json";
+}
+
+.ProseMirror pre.language-jsx:after {
+    content: "jsx";
+}
+
+.ProseMirror pre.language-java:after {
+    content: "java";
+}
+
+.ProseMirror pre.language-sql:after {
+    content: "sql";
+}
+
+.ProseMirror pre.language-swift:after {
+    content: "swift";
+}
+
+.ProseMirror pre.language-php:after {
+    content: "php";
+}
+
+.ProseMirror pre.language-go:after {
+    content: "go";
+}
+
+.ProseMirror pre.language-py:after {
+    content: "py";
+}
+
+/*
+.ProseMirror table p,
+.ProseMirror table p:first-child {
+    margin: 5px;
+}
+*/
+.ProseMirror .column-resize-handle {
+    position: absolute;
+    right: -2px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    z-index: 20;
+    background-color: #adf;
+    pointer-events: none;
+}
+
+.ProseMirror.resize-cursor {
+    cursor: ew-resize;
+    cursor: col-resize;
+}
+
+.ProseMirror .selectedCell:after {
+    z-index: 2;
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(200, 200, 255, 0.4);
+    pointer-events: none;
+}
+
+.PMmenubar {
+    position: relative;
+    padding: 6px;
+    border: 1px solid #e6e6e6;
+    border-bottom: 0;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.PMmenubar:before {
+    bottom: 0;
+    background-color: #e6e6e6;
+    content: "";
+    height: 1px;
+    left: 0;
+    margin: 0 10px;
+    right: 0;
+    position: absolute;
+}
+
+.PMMseparator {
+    border-right: 1px solid #ddd;
+    margin: 3px;
+}
+
+.PMMdropdownitem {
+    cursor: pointer;
+    padding: 2px 0;
+}
+
+.PMMdropdownitem:hover {
+    background: #f2f2f2;
+}
+
+.PMMdropdownitem .PMbtn {
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.PMprompt {
+    background: white;
+    padding: 10px 10px 5px 15px;
+    position: fixed;
+    border-radius: 2px;
+    z-index: 600;
+    transition: all 0.25s cubic-bezier(0.3, 1.2, 0.2, 1);
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    border: 1px solid #e8e8e8;
+}
+
+.PMprompt h3 {
+    margin-top: 0;
+    color: #444;
+    text-align: center;
+}
+
+.PMprompt form>div {
+    margin: 9px 0;
+}
+
+.PMprompt label>span {
+    width: 75px;
+    display: inline-block;
+}
+
+.PMprompt label>span::after {
+    content: ":";
+    margin: 0px 8px 0px 2px;
+}
+
+.PMprompt label>input {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    width: 350px;
+}
+
+.PMinvalid {
+    background: #ffc;
+    border: 1px solid #cc7;
+    border-radius: 2px;
+    padding: 5px 10px;
+    position: absolute;
+    min-width: 10em;
+}
+
+/* lake*/
+.PMbtn {
+    height: 28px;
+    width: auto;
+    margin: 0;
+    text-align: center;
+    padding-top: 5px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #595959;
+    fill: #595959;
+    outline: none;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.PMbtn:hover {
+    border: 1px solid #e8e8e8;
+    background-color: #f5f5f5;
+}
+
+.PMbtn:active,
+.PMbtn-active,
+.PMbtn-active:hover {
+    background-color: #e8e8e8;
+    border: 1px solid transparent;
+}
+
+.ProseMirror-menu-dropdown-item .PMbtn {
+    width: 100%;
+    text-align: left;
+}
+
+.PMbtn-disabled,
+.PMbtn-disabled:hover {
+    background-color: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+    color: #000;
+    opacity: 0.25;
+    cursor: not-allowed;
+}
+
+.PMbtn>svg {
+    width: 16px;
+}
+
+.PMbtns {
+    position: relative;
+    display: inline-block;
+}
+
+.PMbtns-trigger {
+    display: inline-block;
+}
+
+.PMbtns-trigger button {
+    padding: 5px 15px 0 6px;
+}
+
+.PMbtns-trigger button:after {
+    content: "";
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid currentColor;
+    opacity: .6;
+    position: absolute;
+    right: 4px;
+    top: calc(50% - 1px);
+}
+
+.PMbtns-list {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    min-width: 104px;
+    font-size: 12px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    padding: 5px 0;
+    height: auto;
+    display: none;
+    transition: all 0.25s cubic-bezier(0.3, 1.2, 0.2, 1);
+    z-index: 999;
+    transform: translateY(-10px);
+}
+
+.PMbtns-list-active {
+    display: block;
+    transform: translateY(0);
+}
+
+.PMbtns-trigger-double button:after {
+    right: 6px;
+}
+
+.PMbtns-trigger-double-active .PMbtn,
+.PMbtns-trigger-double:hover .PMbtn {
+    border: 1px solid #e8e8e8;
+}
+
+.PMbtns-trigger-double .PMbtn:first-child {
+    width: 26px;
+}
+
+.PMbtns-trigger-double .PMbtn-current {
+    margin-right: 0;
+    min-width: 26px;
+    border-radius: 2px 0 0 2px;
+}
+
+.PMbtns-trigger-double .PMbtn {
+    padding-top: 3px;
+}
+
+.PMbtns-trigger-double .PMbtn-dropdown {
+    margin-left: -1px;
+    min-width: 17px;
+    text-align: center;
+    padding: 0 0;
+    border-radius: 0 2px 2px 0;
+}
+
+.PMbtns-list-colorboard {
+    padding: 12px 10px;
+}
+
+.PMbtns[title='正文'] .PMbtn {
+    padding-top: 0;
+}
+
+.PMcolors {
+    display: flex;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.PMcolor {
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    flex: 0 0 auto;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.PMcolor>span {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    display: block;
+    border-radius: 2px;
+    border: 1px solid #00000030;;
+}
+
+.PMcolor svg {
+    display: none;
+    position: absolute;
+    top: -1px;
+    left: 1px;
+    width: 12px;
+    height: 12px;
+}
+
+.PMcolor-active svg {
+    display: block;
+}
+
+.PMcolor:hover {
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.zp100.fullscreen {
+    z-index: 500;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    max-width: unset;
+    padding-left: calc((100vw - 800px) / 2);
+    padding-right: calc((100vw - 800px) / 2);
+}
+
+.zp100.fullscreen .ProseMirror {
+    height: calc(100% - 50px);
+    overflow-y: auto;
+}
+
+.zp100 .PMbtn[title='退出全屏'] {
+    display: none;
+}
+
+.zp100.fullscreen .PMbtn[title='全屏'] {
+    display: none;
+}
+
+.zp100.fullscreen .PMbtn[title='退出全屏'] {
+    display: inline-block;
+    fill: red;
+}
+
+`
