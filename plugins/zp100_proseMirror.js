@@ -21,8 +21,8 @@ function onInit(ref) {
     }
     container.insertImage = url => ref.insertImage(url)
     container.insertVideo = url => ref.insertVideo(url)
-    图库 = ref.render({ t: "Plugin", p: { ID: "zp101", P: { mineOnly: true, onSelect: '$("' + "#" + id + '").insertImage($x)', type: "i" } } }, id + "_0")
-    视频库 = ref.render({ t: "Plugin", p: { ID: "zp101", P: { mineOnly: true, onSelect: '$("' + "#" + id + '").insertVideo($x)', type: "v" } } }, id + "_1")
+    图库 = ref.render({ t: "Plugin", p: { ID: "zp101", P: { mineOnly: true, onSelect: '$("' + "#" + id + '").insertImage(url)', type: "i" } } }, id + "_0")
+    视频库 = ref.render({ t: "Plugin", p: { ID: "zp101", P: { mineOnly: true, onSelect: '$("' + "#" + id + '").insertVideo(url)', type: "v" } } }, id + "_1")
 }
 
 function getHTML(state) {
