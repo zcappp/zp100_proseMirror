@@ -36,7 +36,7 @@ $plugin({
     id: "zp100",
     props: [{
         prop: "html",
-        type: "textarea",
+        type: "exp",
         label: "html",
         ph: "初始内容"
     }],

@@ -214,6 +214,7 @@ module.exports=`
     background: #f5f2f0;
     padding: 1em;
     margin: .5em 0;
+    overflow: auto;
 }
 
 .ProseMirror pre[class*=language-]:after {
