@@ -11,7 +11,7 @@ function render(ref) {
 }
 
 function onInit(ref) {
-    const { container, id, exc } = ref
+    const { container, id } = ref
     const view = proseMirror(ref)
     // container.getView = () => { return view }
     // container.getDoc = () => { return view.state.toJSON().doc.content }
@@ -23,6 +23,13 @@ function onInit(ref) {
     container.insertVideo = url => ref.insertVideo(url)
     图库 = ref.render({ t: "Plugin", p: { ID: "zp101", P: { mineOnly: true, onSelect: '$("' + "#" + id + '").insertImage(url)', type: "i" } } }, id + "_0")
     视频库 = ref.render({ t: "Plugin", p: { ID: "zp101", P: { mineOnly: true, onSelect: '$("' + "#" + id + '").insertVideo(url)', type: "v" } } }, id + "_1")
+    if (ref.props.html === undefined) setTimeout(() => {
+        if (ref.props.html) {
+            if (!container.getHTML()) container.setHTML(ref.props.html)
+        } else setTimeout(() => {
+            if (ref.props.html && !container.getHTML()) container.setHTML(ref.props.html)
+        }, 800)
+    }, 200)
 }
 
 function getHTML(state) {
