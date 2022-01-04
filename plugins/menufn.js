@@ -347,26 +347,28 @@ export const upload = (ref, type, i) => {
             const node = $("#" + ref.id + " .uploading")
             node.innerHTML = (i ? '<img src="' : '<video src="') + x + '"/>'
             node.appendChild(document.createElement("div"))
-            ref.exc('upload(file, onProgress, onSuccess, onError)', {
+            ref.exc('upload(file, option)', {
                 file,
-                onProgress: r => {
-                    node.lastChild.innerHTML = r.percent + "%"
-                },
-                onSuccess: r => {
-                    let n = document.createElement(i ? "img" : "video")
-                    n.src = r.url
-                    n[i ? "onload" : "onloadstart"] = e => {
-                        e.target[i ? "onload" : "onloadstart"] = null
-                        let pos = findPlaceholder(view.state, id);
-                        if (pos == null) { return }
-                        view.dispatch(view.state.tr.replaceWith(pos, pos, type.create({ src: r.url })).setMeta(placeholderPlugin, { remove: { id } }));
+                option: {
+                    onProgress: r => {
+                        node.lastChild.innerHTML = r.percent + "%"
+                    },
+                    onSuccess: r => {
+                        let n = document.createElement(i ? "img" : "video")
+                        n.src = r.url
+                        n[i ? "onload" : "onloadstart"] = e => {
+                            e.target[i ? "onload" : "onloadstart"] = null
+                            let pos = findPlaceholder(view.state, id);
+                            if (pos == null) { return }
+                            view.dispatch(view.state.tr.replaceWith(pos, pos, type.create({ src: r.url })).setMeta(placeholderPlugin, { remove: { id } }));
+                            URL.revokeObjectURL(x)
+                        }
+                    },
+                    onError: r => {
+                        ref.exc(`alert("上传出错了", r.error)`, { r })
+                        view.dispatch(tr.setMeta(placeholderPlugin, { remove: { id } }))
                         URL.revokeObjectURL(x)
                     }
-                },
-                onError: r => {
-                    ref.exc(`alert("上传出错了", r.error)`, { r })
-                    view.dispatch(tr.setMeta(placeholderPlugin, { remove: { id } }))
-                    URL.revokeObjectURL(x)
                 }
             })
         }, false)
