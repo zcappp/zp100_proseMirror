@@ -10,7 +10,7 @@ function render(ref) {
     return [图库, 视频库]
 }
 
-function onInit(ref) {
+function init(ref) {
     const { container, id } = ref
     const view = proseMirror(ref)
     // container.getView = () => { return view }
@@ -48,7 +48,7 @@ $plugin({
         ph: "初始内容"
     }],
     render,
-    onInit,
+    init,
     css
 })
 
