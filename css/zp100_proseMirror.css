@@ -585,7 +585,7 @@ module.exports=`
 }
 
 .zp100.fullscreen .ProseMirror {
-    height: calc(100% - 50px);
+    height: calc(100% - 99px);
     overflow-y: auto;
 }
 
