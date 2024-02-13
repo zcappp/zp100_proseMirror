@@ -5,7 +5,7 @@ module.exports = {
     mode: process.env.mode || "development",
     devtool: false,
     entry: {
-        "zp100": "./plugins/zp100_proseMirror.js",
+        "zp100": "./src/zp100_proseMirror.js",
     },
     output: {
         path: path.join(__dirname, "build/"),
