@@ -4,10 +4,8 @@ import proseMirror from "./proseMirror"
 import { DOMSerializer, DOMParser } from "prosemirror-model"
 import { EditorState } from "prosemirror-state"
 
-let 图库, 视频库
-
 function render(ref) {
-    return [图库, 视频库]
+    return [ref.图库, ref.视频库]
 }
 
 function init(ref) {
@@ -21,8 +19,9 @@ function init(ref) {
     }
     container.insertImage = url => ref.insertImage(url)
     container.insertVideo = url => ref.insertVideo(url)
-    图库 = ref.render({ t: "Plugin", p: { ID: "zp101", P: { mineOnly: true, onSelect: '$("' + "#" + id + '").insertImage(url)', type: "i" } } }, id + "_0")
-    视频库 = ref.render({ t: "Plugin", p: { ID: "zp101", P: { mineOnly: true, onSelect: '$("' + "#" + id + '").insertVideo(url)', type: "v" } } }, id + "_1")
+    // ref.图库 = ref.excA('html({ t: "Plugin", p: { ID: "zp101", P: { mineOnly: true, onSelect: "$(\"" + "#" + id + "\").insertImage(url)", type: "i" } } }, id + "_0")')
+    ref.图库 = ref.excA(`html({ t: "Plugin", p: { ID: "zp101", P: { mineOnly: true, onSelect: '$("' + "#" + "${id}" + '").insertImage(url)', type: "i" } } }, "${id + "_0"}")`)
+    ref.视频库 = ref.excA(`html({ t: "Plugin", p: { ID: "zp101", P: { mineOnly: true, onSelect: '$("' + "#" + "${id}" + '").insertVideo(url)', type: "v" } } }, "${id + "_1"}")`)
     if (ref.props.html === undefined) setTimeout(() => {
         if (ref.props.html) {
             if (!container.getHTML()) container.setHTML(ref.props.html)
@@ -43,7 +42,7 @@ $plugin({
     id: "zp100",
     props: [{
         prop: "html",
-        type: "exp",
+        type: "text",
         label: "html",
         ph: "初始内容"
     }],
