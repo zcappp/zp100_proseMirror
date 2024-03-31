@@ -23,7 +23,7 @@ export function openPrompt(O) {
 
     let submitBtn = document.createElement("button")
     submitBtn.type = "submit"
-    submitBtn.className = "zbtn zprimary"
+    submitBtn.className = "zbtn main"
     submitBtn.textContent = "确定"
     let cancelBtn = document.createElement("button")
     cancelBtn.type = "button"
